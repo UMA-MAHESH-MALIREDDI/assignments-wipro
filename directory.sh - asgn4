@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir TestDir
+
+for i in {1..10}
+do
+  filename="File$i.txt"
+  filepath="TestDir/$filename"
+  
+  echo "$filename" > "$filepath"
+done
+
+echo "Files created successfully in TestDir"
