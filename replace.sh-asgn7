@@ -1,0 +1,8 @@
+#!/bin/bash
+
+INPUT_FILE="input.txt"
+OUTPUT_FILE="output.txt"
+
+sed 's/old_text/new_text/g' "$INPUT_FILE" > "$OUTPUT_FILE"
+
+echo "Replacement done. Output saved in $OUTPUT_FILE"
