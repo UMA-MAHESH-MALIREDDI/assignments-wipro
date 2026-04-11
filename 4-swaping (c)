@@ -1,0 +1,26 @@
+#include<stdio.h> 
+int main()
+{
+    //with 3 variable 
+    int a, b,c ;
+    scanf("%d%d",&a,&b);
+    c=a ;
+    a=b ;
+    b=c;
+    
+    printf("a = %d\n",a);
+    printf("b = %d\n",b);
+    //without 3 variables 
+    int a,b ;
+    scanf("%d%d",&a,&b);
+    a=a+b ; 
+    b=a-b;
+    a=a-b ; 
+    printf("a = %d\n",a);
+    printf("b = %d\n",b);
+    
+    
+    
+    return 0 ;
+}
+
