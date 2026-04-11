@@ -1,0 +1,41 @@
+#include <stdio.h>
+int main() {
+    int choice ;
+    scanf("%d",&choice);
+    
+    float a,b,result ;
+    scanf("%f %f",&a,&b);
+    switch(choice)
+    {
+        
+        case 1 :
+            result=a+b ;
+            printf("%f\n",result);
+            break ; 
+        case 2 :
+            result =a-b ;
+            printf("%f\n",result);
+            break ;
+        case 3 :
+     
+            result=a*b ;
+            printf("%f\n",result);
+            break;
+        case 4:
+            if (b!=0){
+                result=a/b;
+                printf("%f\b",result);
+                break ;    
+            }
+
+            else{
+                printf("error");    
+            }
+        default:
+            printf("invalid response");       
+        
+    }
+    
+    
+    return 0;
+}
