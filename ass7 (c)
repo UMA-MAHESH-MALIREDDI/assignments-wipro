@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main() {
+    float basic_salary,sales_amt,commision,net_salary ;
+    float rate=0 ;
+    scanf("%f",&basic_salary);
+    scanf("%f",&sales_amt);
+    
+    if(sales_amt>=5000 && sales_amt<=7500){
+        rate=0.03; 
+    }
+    else if (sales_amt>7500 && sales_amt<=10500){
+        rate=0.08;
+    }
+    else if (sales_amt>10500 && sales_amt<=15000){
+        rate=0.11 ;
+    }
+    else if(sales_amt>15000){
+        rate=0.15 ;
+    }
+    
+    commision=sales_amt*rate ;
+    net_salary=commision+basic_salary ;
+    
+    printf("commision is :%f\n",commision);
+    printf("net_salary is  %f\n",net_salary);
+    
+    
+    return 0;
+}
