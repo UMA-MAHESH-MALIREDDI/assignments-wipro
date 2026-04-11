@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    
+    float net_salary,basic_salary,hra,da,pf,gs ;
+    scanf("%f",&basic_salary);
+    hra=0.15*basic_salary;
+    da=0.30*basic_salary;
+    gs=basic_salary+hra+da;
+    pf=0.125*gs; 
+    net_salary=gs-pf ;
+    printf("%f \n",net_salary);
+    return 0;
+}
