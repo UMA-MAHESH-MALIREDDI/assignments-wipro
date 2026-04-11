@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main() {
+    char ch ;
+    scanf("%c",&ch); 
+    
+    if (ch>='A' && ch<='Z'){
+        ch=ch+32 ;
+        printf("opposite of given value is: %c\n",ch);
+    }
+    else if (ch>='a' && ch <='z'){
+        ch=ch-32;
+        printf("opposite of given value is: %c\n",ch);
+    }
+    else{
+        printf("error");
+    }
+    return 0; 
+}
