@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main() {
+    int num,dup_num,rem,result=0 ;
+    scanf("%d",&num);
+    dup_num=num ;
+    while(dup_num!=0){
+        rem=dup_num%10 ;
+        result+=rem*rem*rem;
+        dup_num=dup_num/10 ;
+    }
+    if (result==num){
+        printf("%d is an armstrong\n",num);
+        
+    }
+    else{
+        printf("%d not an armstrong\n",num);
+    }
+    return 0;
+}
