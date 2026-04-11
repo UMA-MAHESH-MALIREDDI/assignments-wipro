@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+
+    printf("Welcome to Wipro\n");
+    printf("Welcome to\tWipro\n");
+
+    printf("Welcome to\rWipro\n");
+
+    printf("Welcome to \\n Wipro\n");
+
+    return 0;
+}
