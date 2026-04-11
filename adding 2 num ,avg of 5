@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(){
+
+    int a, b;
+    int n1, n2, n3, n4, n5;
+    float avg;
+
+    printf("enter your first number\n");
+    scanf("%d", &a);
+
+    printf("enter second number\n");
+    scanf("%d", &b);
+
+    printf("The value is: %d\n", a + b);
+
+    printf("Enter five number to find average\n");
+    
+    scanf("%d%d%d%d%d", &n1, &n2, &n3, &n4, &n5);
+
+    avg = (n1 + n2 + n3 + n4 + n5) / 5.0;
+
+    printf("the avg is: %f\n", avg);
+
+    return 0;
+}
