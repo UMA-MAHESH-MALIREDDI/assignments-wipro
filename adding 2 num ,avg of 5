@@ -13,7 +13,7 @@ int main(){
     scanf("%d", &b);
 
     printf("The value is: %d\n", a + b);
-
+//average 
     printf("Enter five subject marks to find average\n");
     
     scanf("%d %d %d %d %d", &n1, &n2, &n3, &n4, &n5);
