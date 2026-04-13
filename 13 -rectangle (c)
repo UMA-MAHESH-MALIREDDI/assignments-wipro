@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main() {
+    int length,breadth ; 
+    scanf("%d",&length);
+    scanf("%d",&breadth); 
+    
+    for(int i=0;i<breadth;i++){
+        for(int j=0;j<length;j++){
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
