@@ -2,6 +2,7 @@
 
 void fibanacci(int num){
     int a=0,b=1,next ;
+    printf("fibanacci series is \n");
     for (int i=1;i<=num;i++){
         printf("%d ",a);
         next=a+b ;
@@ -13,6 +14,7 @@ void fibanacci(int num){
 
 int main() {
     int num ;
+    printf("enter number :\n");
     scanf("%d",&num);
     fibanacci(num);
     
