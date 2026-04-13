@@ -8,7 +8,7 @@ int main() {
     for (int i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
-        printf("enter position\n");
+        printf("enter position: \n");
     scanf("%d",&pos);
     if(pos<1 || pos>n){
         printf("invalid");
@@ -19,7 +19,7 @@ int main() {
             
         }
         n--;
-    
+        printf("your new array is :\n");
         for(int i=0;i<n;i++){
             printf("%d ",arr[i]);
         
