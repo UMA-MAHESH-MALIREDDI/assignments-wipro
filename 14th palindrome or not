@@ -9,7 +9,7 @@ int main(){
     int len=strlen(str);
     int count=1 ;
     for(int i=0;i<len/2;i++){
-        if(str[i]!=str[len-i-1]){
+        if(tolower(str[i])!=tolower(str[len-i-1])){
             count=0;
             break;
         }
