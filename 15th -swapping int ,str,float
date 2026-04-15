@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std ;
+
+void swap(int &a,int &b){
+    int temp=a;
+    a=b;
+    b=temp; 
+}
+
+void swap(float &a,float &b){
+    float temp=a;
+    a=b;
+    b=temp; 
+}
+void swap(string &a,string &b){
+    string temp=a;
+    a=b;
+    b=temp; 
+}
+
+
+int main(){
+    int a=7 ,  b=9 ;
+    swap(a,b);
+    cout<<a<<" "<<b<<endl ;
+    
+    float f1=1.2,f2=2.3 ;
+    swap(f1,f2);
+    cout<<f1<<" "<<f2<<endl ;
+    
+    string s1="one" ,s2="two" ;
+    swap(s1,s2);
+    cout<<s1<<" "<<s2<<endl; 
+    return 0;
+  
+}
