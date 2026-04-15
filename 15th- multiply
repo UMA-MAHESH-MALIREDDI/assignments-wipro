@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std ;
+
+
+int multipy(int a,int b,int c=1,int d=1){
+    return a*b*c*d ;
+}
+
+
+int main(){
+    cout<<multipy(2,3)<<endl;
+    cout<<multipy(2,3,4)<<endl;
+    cout<<multipy(1,2,3,4)<<endl;
+    return 0;
+}
