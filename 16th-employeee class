@@ -1,0 +1,95 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Employee {
+    int emp_id;
+    char emp_name[20];
+    double salary;
+
+public:
+    Employee() {
+        emp_id = 0;
+        strcpy(emp_name, " ");
+        salary = 0;
+    }
+
+    Employee(int id, char* name, double sal) {
+        emp_id = id;
+        strcpy(emp_name, name);
+        salary = sal;
+    }
+
+    void Accept() {
+        cout << "Enter ID: ";
+        cin >> emp_id;
+        cout << "Enter Name: ";
+        cin >> emp_name;
+        cout << "Enter Salary: ";
+        cin >> salary;
+    }
+
+    void Display() {
+        cout << emp_id << " " << emp_name << " " << salary << endl;
+    }
+
+    int getId() {
+        return emp_id;
+    }
+
+    void update() {
+        cout << "Enter new Name: ";
+        cin >> emp_name;
+        cout << "Enter new Salary: ";
+        cin >> salary;
+    }
+};
+
+int main() {
+    Employee emp[5];
+    int n = 0, choice;
+
+    do {
+        cout << "\n1.Insert  2.Update  3.Display  4.Exit\n";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            if (n < 5) {
+                emp[n].Accept();
+                n++;
+            } else {
+                cout << "Array full\n";
+            }
+            break;
+
+        case 2: {
+            int id, found = 0;
+            cout << "Enter ID to update: ";
+            cin >> id;
+
+            for (int i = 0; i < n; i++) {
+                if (emp[i].getId() == id) {
+                    emp[i].update();
+                    found = 1;
+                }
+            }
+
+            if (!found)
+                cout << "Not found\n";
+            break;
+        }
+
+        case 3:
+            for (int i = 0; i < n; i++)
+                emp[i].Display();
+            break;
+
+        case 4:
+            cout << "Exit\n";
+            break;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
