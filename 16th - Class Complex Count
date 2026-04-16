@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+class Complex {
+    int real, imag;
+    static int count;
+
+public:
+    Complex() {
+        real = 0;
+        imag = 0;
+        count++;
+    }
+
+    Complex(int r, int i) {
+        real = r;
+        imag = i;
+        count++;
+    }
+
+    static int getCount() {
+        return count;
+    }
+};
+
+// Initialize static variable
+int Complex::count = 0;
+
+int main() {
+    Complex c1;
+    Complex c2(2, 3);
+    Complex c3(4, 5);
+
+    cout << "Total objects created: " << Complex::getCount() << endl;
+
+    return 0;
+}
