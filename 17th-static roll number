@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Student {
+    int roll_no;
+    char name[20];
+    double percentage;
+
+    static int count;   
+
+public:
+    // Default constructor
+    Student() {
+        roll_no = ++count;
+        strcpy(name, "Unknown");
+        percentage = 0.0;
+    }
+
+    // Parameterized constructor
+    Student(char n[], double p) {
+        roll_no = ++count;
+        strcpy(name, n);
+        percentage = p;
+    }
+
+    // Accept
+    void accept() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Percentage: ";
+        cin >> percentage;
+    }
+
+    // Display
+    void display() {
+        cout << "Roll No: " << roll_no
+             << ", Name: " << name
+             << ", Percentage: " << percentage << endl;
+    }
+};
+
+// Initialize static variable
+int Student::count = 0;
+
+int main() {
+    Student s1;
+    Student s2("Ravi", 85.5);
+
+    s1.accept();
+
+    cout << "\nStudent Details:\n";
+    s1.display();
+    s2.display();
+
+    return 0;
+}
