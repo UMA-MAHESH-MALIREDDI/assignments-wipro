@@ -1,0 +1,113 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Employee {
+protected:
+    int id;
+    char name[20];
+    char dob[15];
+
+public:
+    void accept() {
+        cout << "Enter ID: ";
+        cin >> id;
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter DOB: ";
+        cin >> dob;
+    }
+
+    void display() {
+        cout << "ID: " << id
+             << ", Name: " << name
+             << ", DOB: " << dob << endl;
+    }
+};
+
+// Wage Employee
+class WageEmployee : public Employee {
+protected:
+    int hours;
+    double rate;
+
+public:
+    WageEmployee() {
+        hours = 0;
+        rate = 0;
+    }
+
+    void accept() {
+        Employee::accept();
+        cout << "Enter Hours: ";
+        cin >> hours;
+        cout << "Enter Rate: ";
+        cin >> rate;
+    }
+
+    double calculateSalary() {
+        return hours * rate;
+    }
+
+    void display() {
+        Employee::display();
+        cout << "Hours: " << hours
+             << ", Rate: " << rate
+             << ", Salary: " << calculateSalary() << endl;
+    }
+};
+
+// SalesPerson
+class SalesPerson : public WageEmployee {
+    int sales;
+    double commission;
+
+public:
+    SalesPerson() {
+        sales = 0;
+        commission = 0;
+    }
+
+    void accept() {
+        WageEmployee::accept();
+        cout << "Enter Sales: ";
+        cin >> sales;
+        cout << "Enter Commission per item: ";
+        cin >> commission;
+    }
+
+    double calculateSalary() {
+        return (hours * rate) + (sales * commission);
+    }
+
+    void display() {
+        Employee::display();
+        cout << "Hours: " << hours
+             << ", Rate: " << rate
+             << ", Sales: " << sales
+             << ", Commission: " << commission
+             << ", Salary: " << calculateSalary() << endl;
+    }
+};
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n1.WageEmployee 2.SalesPerson 3.Exit\n";
+        cin >> choice;
+
+        if (choice == 1) {
+            WageEmployee w;
+            w.accept();
+            w.display();
+        } else if (choice == 2) {
+            SalesPerson s;
+            s.accept();
+            s.display();
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
