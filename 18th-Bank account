@@ -1,0 +1,159 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Account {
+protected:
+    int acc_no;
+    char name[20];
+    double balance;
+
+public:
+    bool accept() {
+        cout << "Enter Account No: ";
+        cin >> acc_no;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid Account Number!\n";
+            return false;
+        }
+
+        cout << "Enter Name: ";
+        cin >> name;
+
+        cout << "Enter Balance: ";
+        cin >> balance;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid Balance!\n";
+            return false;
+        }
+
+        return true;
+    }
+
+    void display() {
+        cout << "Acc No: " << acc_no
+             << ", Name: " << name
+             << ", Balance: " << balance << endl;
+    }
+};
+
+class SavingsAccount : public Account {
+    double rate;
+    int period;
+
+public:
+    bool accept() {
+        if (!Account::accept()) return false;
+
+        cout << "Enter Rate per month: ";
+        cin >> rate;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid Rate!\n";
+            return false;
+        }
+
+        cout << "Enter Period: ";
+        cin >> period;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid Period!\n";
+            return false;
+        }
+
+        return true;
+    }
+
+    void display() {
+        Account::display();
+        cout << "Rate: " << rate
+             << ", Period: " << period << endl;
+    }
+
+    void calculateNetBalance() {
+        double net = balance + (rate * period);
+        cout << "Net Balance: " << net << endl;
+    }
+};
+
+class CurrentAccount : public Account {
+    double overlimit;
+
+public:
+    bool accept() {
+        if (!Account::accept()) return false;
+
+        cout << "Enter Overlimit: ";
+        cin >> overlimit;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid Overlimit!\n";
+            return false;
+        }
+
+        return true;
+    }
+
+    void display() {
+        Account::display();
+        cout << "Overlimit: " << overlimit << endl;
+    }
+};
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n1.Savings 2.Current 3.Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid choice!\n";
+            continue;
+        }
+
+        switch (choice) {
+        case 1: {
+            SavingsAccount s;
+            if (s.accept()) {
+                s.display();
+                s.calculateNetBalance();
+            }
+            break;
+        }
+
+        case 2: {
+            CurrentAccount c;
+            if (c.accept()) {
+                c.display();
+            }
+            break;
+        }
+
+        case 3:
+            cout << "Exiting...\n";
+            break;
+
+        default:
+            cout << "Invalid choice!\n";
+        }
+
+    } while (choice != 3);
+
+    return 0;
+}
