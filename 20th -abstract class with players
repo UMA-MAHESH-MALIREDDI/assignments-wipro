@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// 🔹 Pure Abstract Class
+class PrintClass {
+public:
+    virtual void printDetails() = 0; // pure virtual function
+};
+
+// 🔹 Cricket Player Class
+class CricketPlayer : public PrintClass {
+    char name[20];
+    int runs;
+
+public:
+    CricketPlayer(char n[], int r) {
+        strcpy(name, n);
+        runs = r;
+    }
+
+    void printDetails() {
+        cout << "Cricket Player Name: " << name
+             << ", Runs: " << runs << endl;
+    }
+};
+
+// 🔹 Football Player Class
+class FootBallPlayer : public PrintClass {
+    char name[20];
+    int goals;
+
+public:
+    FootBallPlayer(char n[], int g) {
+        strcpy(name, n);
+        goals = g;
+    }
+
+    void printDetails() {
+        cout << "Football Player Name: " << name
+             << ", Goals: " << goals << endl;
+    }
+};
+
+int main() {
+    // Create objects
+    CricketPlayer c("Virat", 12000);
+    FootBallPlayer f("Messi", 800);
+
+    // Base class pointer
+    PrintClass *ptr;
+
+    // Call CricketPlayer method
+    ptr = &c;
+    ptr->printDetails();
+
+    // Call FootballPlayer method
+    ptr = &f;
+    ptr->printDetails();
+
+    return 0;
+}
